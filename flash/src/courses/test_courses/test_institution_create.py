@@ -1,5 +1,5 @@
 """
-FlashCourses- Test cases for API endpoint deck create
+FlashCourses- Test cases for API endpoint institution create
 Created By: Swechchha Tiwari  4/6/2018
 Modified Date:  4/17/2018
 """
@@ -43,9 +43,9 @@ class APIStatusCodeInstCreate(APITestCase):
         """
 
         valid_data = {
-            "ipeds": "ws",
+            "ipeds": "662354",
             "institution_name": "UNH",
-            "location" : "Manchester"
+            "location" : "Manchester, NH"
         }
 
         for endpoint in self.post_method_endpoint_institution:

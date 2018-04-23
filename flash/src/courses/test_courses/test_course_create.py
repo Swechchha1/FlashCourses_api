@@ -1,7 +1,7 @@
 """
-FlashCourses- Test cases for API endpoint deck create
-Created By: Swechchha Tiwari  4/6/2018
-Modified Date:  4/17/2018
+FlashCourses- Test cases for API endpoint course create
+Created By: Swechchha Tiwari  4/21/2018
+Modified Date:  4/22/2018
 """
 
 import json
@@ -32,7 +32,7 @@ class APIStatusCodeCourseCreate(APITestCase):
 
     def test_course_endpoint_post_method_with_valid_data(self):
         """
-        Create a request to every endpoint in post_method_endpoints. Ensure returns a 201
+        Create a request to endpoint in post_method_endpoints. Ensure returns a 201
         response status code
         """
 
@@ -54,7 +54,7 @@ class APIStatusCodeCourseCreate(APITestCase):
 
     def test_course_endpoint_post_method_with_invalid_data(self):
         """
-        Create a request to deck create endpoint in post_method_endpoints. Ensure returns a 400 for invalid data
+        Create a request to course create endpoint in post_method_endpoints. Ensure returns a 400 for invalid data
         response status code
         """
 
