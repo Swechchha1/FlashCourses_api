@@ -45,6 +45,7 @@ class APIStatusCodeCardCreate(APITestCase):
 
         for endpoint in self.post_method_endpoints_card:
             response = c.post(endpoint, valid_data, format = 'json')
+
         self.assertEqual(response.status_code, 201)
 
     def test_card_endpoint_post_method_with_invalid_data(self):
@@ -56,11 +57,11 @@ class APIStatusCodeCardCreate(APITestCase):
         c = Client()
         invalid_data = {
 
-              "front": "test",
-              "back": ""
-        }
+                "front" : "test front",
+                "back"  : ""
+                }
 
         for endpoint in self.post_method_endpoints_card:
             response = c.post(endpoint, invalid_data, format = 'json')
-
+            
         self.assertEqual(response.status_code, 400)
