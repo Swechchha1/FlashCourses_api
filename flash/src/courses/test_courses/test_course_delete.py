@@ -33,7 +33,7 @@ class APIdeleteStatusCodeTestsCourse(APITestCase):
 
         ]
 
-    def test_self_delete_method_endpointcourse(self):
+    def test_delete_method_endpoint_course(self):
         """
         Create a request to every endpoint in delete_method_endpoints. Ensure returns a 204
         response status code

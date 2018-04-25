@@ -16,7 +16,7 @@ from rest_framework import status
 from rest_framework.test import APITestCase
 from accounts.models import UserProfile
 
-class APIgetStatusCoursedetail(APITestCase):
+class APIgetStatusCourseTree(APITestCase):
 
     """
     Tests API endpoint response status codes
@@ -27,21 +27,16 @@ class APIgetStatusCoursedetail(APITestCase):
         Sets up testing environment for GET method for course_tree based on unique_id.
         """
         user = User.objects.create_user('Swechchha', 'swechchha@gmail.com', 'imppwdswe')
-        user.save()
         inst = Institution.objects.create(ipeds = '123654' , institution_name = 'UNH', location = 'Manchester' )
-        inst.save()
         course_tbl = Course.objects.create(course_title = 'test', course_id = '2', course_description = 'this is a test data')
-        course_tbl.save()
         deck_tbl = Deck.objects.create(title = 'test title', deck_description = 'this is a test')
-        deck_tbl.save()
         card_tbl = Card.objects.create(front = 'test', back = 'testsback')
-        card_tbl.save()
 
         self.endpoint_course_tree = [
             reverse('courses:courses_api:course_tree', kwargs = {'unique_id': Course.objects.first().unique_id}),
         ]
 
-    def test_course_endpoint_detail_method(self):
+    def test_course_endpoint_tree(self):
         """
         Create a request to endpoint in endpoint_course_tree Ensure returns a 200
         response status code

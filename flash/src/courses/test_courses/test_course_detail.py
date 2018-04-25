@@ -33,12 +33,11 @@ class APIgetStatusCoursedetail(APITestCase):
         deck_tbl = Deck.objects.create(title = 'test title', deck_description = 'this is a test')
         card_tbl = Card.objects.create(front = 'test', back = 'testsback')
 
-
         self.detail_method_endpoint_course = [
             reverse('courses:courses_api:course_detail', kwargs = {'unique_id': Course.objects.first().unique_id}),
         ]
 
-    def test_course_endpoint_detail_method(self):
+    def test_detail_method_endpoint_course(self):
         """
         Create a request to every endpoint in retrieve_method_endpoints. Ensure returns a 200
         response status code
@@ -46,5 +45,5 @@ class APIgetStatusCoursedetail(APITestCase):
         c = Client()
 
         for endpoint in self.detail_method_endpoint_course:
-            response = c.get(endpoint)
+            response = c.get(endpoint)   
         self.assertEqual(response.status_code, 200)

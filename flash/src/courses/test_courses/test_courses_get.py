@@ -17,7 +17,7 @@ from rest_framework.test import APITestCase
 from accounts.models import UserProfile
 
 
-class APIgetStatusCodeInstandCourse(APITestCase):
+class APIgetStatusCodeInstCourse(APITestCase):
 
     """
     Tests API endpoint response status codes

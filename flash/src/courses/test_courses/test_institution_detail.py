@@ -26,7 +26,6 @@ class APIgetStatusInstitutiondetail(APITestCase):
         """
         Sets up testing environment for GET method for card_retrieve and deck_retrieve based on unique_id.
         """
-        #user = User.objects.create_user('Swechchha', 'swechchha@gmail.com', 'imppwdswe')
 
         inst = Institution.objects.create(ipeds = '123654' , institution_name = 'UNH', location = 'Manchester' )
         course_tbl = Course.objects.create(course_title = 'test', course_id = '2', course_description = 'this is a test data')
@@ -36,7 +35,7 @@ class APIgetStatusInstitutiondetail(APITestCase):
             reverse('courses:courses_api:institution_detail', kwargs = {'unique_id': Institution.objects.first().unique_id}),
         ]
 
-    def test_deck_endpoint_detail_method(self):
+    def test_detail_method_endpoint_inst(self):
         """
         Create a request to every endpoint in retrieve_method_endpoints. Ensure returns a 200
         response status code

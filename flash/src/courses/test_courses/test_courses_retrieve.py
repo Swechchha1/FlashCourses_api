@@ -16,7 +16,7 @@ from rest_framework import status
 from rest_framework.test import APITestCase
 from accounts.models import UserProfile
 
-class APIretrieveStatusCodeInstandCourse(APITestCase):
+class APIretrieveStatusCodeInstCourse(APITestCase):
 
     """
     Tests API endpoint response status codes
@@ -28,16 +28,14 @@ class APIretrieveStatusCodeInstandCourse(APITestCase):
         """
 
         inst = Institution.objects.create(ipeds = '12', institution_name = 'UNH', location = 'Manchester NH' )
-        inst.save()
         course_tbl = Course.objects.create(course_title = 'test', course_id = '2', course_description = 'this is a test data')
-        course_tbl.save()
 
         self.retrieve_method_endpoint_courses = [
             reverse('courses:courses_api:institution_retrieve', kwargs = {'unique_id': Institution.objects.first().unique_id}),
             reverse('courses:courses_api:course_retrieve', kwargs = {'unique_id': Course.objects.first().unique_id}),
         ]
 
-    def test_courses_endpoint_get_method(self):
+    def test_courses_endpoint_retrieve_method(self):
         """
         Create a request to every endpoint in retrieve_method_endpoint_courses. Ensure returns a 200
         response status code

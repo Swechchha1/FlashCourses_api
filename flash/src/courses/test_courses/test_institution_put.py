@@ -31,7 +31,7 @@ class APIputStatusCodeTestsInstitution(APITestCase):
         inst = Institution.objects.create(ipeds = '123654' , institution_name = 'UNH', location = 'Manchester' )
 
 
-    def test_deck_endpoint_put_method(self):
+    def test_inst_endpoint_put_method(self):
         """
         Create a request to endpoint for put method and Ensure returns a 200
         response status code

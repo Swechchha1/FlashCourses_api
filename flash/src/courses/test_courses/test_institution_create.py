@@ -30,7 +30,7 @@ class APIStatusCodeInstCreate(APITestCase):
             reverse('courses:courses_api:institution_create')
         ]
 
-    def test_course_endpoint_post_method_with_valid_data(self):
+    def test_inst_endpoint_post_method_with_valid_data(self):
         """
         Create a request to institution create endpoint in post_method_endpoint_institution. Ensure returns a 201
         response status code
@@ -49,10 +49,10 @@ class APIStatusCodeInstCreate(APITestCase):
         }
 
         for endpoint in self.post_method_endpoint_institution:
-            response = c.post(endpoint, valid_data, format = 'json')
+            response = c.post(endpoint, valid_data)
         self.assertEqual(response.status_code, 201)
 
-    def test_course_endpoint_post_method_with_invalid_data(self):
+    def test_inst_endpoint_post_method_with_invalid_data(self):
         """
         Create a request to institution create endpoint in post_method_endpoint_institution. Ensure returns a 400 for invalid data
         response status code
@@ -67,6 +67,6 @@ class APIStatusCodeInstCreate(APITestCase):
         }
 
         for endpoint in self.post_method_endpoint_institution:
-            response = c.post(endpoint, invalid_data, format = 'json')
+            response = c.post(endpoint, invalid_data)
 
         self.assertEqual(response.status_code, 400)
