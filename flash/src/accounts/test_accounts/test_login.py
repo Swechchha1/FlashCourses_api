@@ -1,5 +1,5 @@
 """
-FlashCourses- Test cases for API authentication endpoint
+FlashCourses- Test cases for API Login authentication endpoint
 Created By: Swechchha Tiwari  4/21/2018
 Modified Date:  4/23/2018
 """
@@ -11,7 +11,7 @@ from django.shortcuts import reverse
 from rest_framework import status
 from rest_framework_simplejwt.tokens import RefreshToken, AccessToken
 
-class TestAuthentication(TestCase):
+class LoginTestAuthentication(TestCase):
     def setUp(self):
         """
         Creating test_user for authentication and endpoints for token_obtain_pair, token_refresh and token_verify
@@ -36,6 +36,7 @@ class TestAuthentication(TestCase):
             'password': 'qwe123qw',
 
             }
+
         self.requests = Client()
 
     def test_obtain_token_success(self):
@@ -98,9 +99,9 @@ class TestAuthentication(TestCase):
         self.assertEqual(User.objects.count(), 1)
         response = self.requests.post(self.endpoint_verify_token, data = {'token':str(token)})
         self.assertEqual(response.status_code, 200)
-        print("***************")
-        print(response.content)
-        print("***************")
+        #print("***************")
+        #print(response.content)
+        #print("***************")
         return response
 
     def test_verify_token_failure(self):

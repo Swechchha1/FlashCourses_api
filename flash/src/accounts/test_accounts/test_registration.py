@@ -16,7 +16,7 @@ from rest_framework import status
 class RegisterationTestCases(TestCase):
     def setUp(self):
         """
-        create a user
+        create a user and add endpoint for registration
         """
 
         self.test_user = User.objects.create_user('testuser', 'test@example.com', 'testpassword')
@@ -33,10 +33,10 @@ class RegisterationTestCases(TestCase):
             'password': 'somepassword'
         }
 
-        response = self.client.post(self.create_url , data, format='json')
-    
+        response = self.client.post(self.create_url , data)
+
         self.assertEqual(User.objects.count(), 2)
-        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+        self.assertEqual(response.status_code, 201)
 
     def test_reg_endpoint_post_with_invalid_data(self):
         """
@@ -48,6 +48,6 @@ class RegisterationTestCases(TestCase):
             'password': ''
         }
 
-        response = self.client.post(self.create_url , invalid_user_data, format='json')
+        response = self.client.post(self.create_url , invalid_user_data)
 
         self.assertEqual(response.status_code, 400)
